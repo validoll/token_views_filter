@@ -1,0 +1,8 @@
+name: Tokens in Views Filter Criteria
+description: Allow to use tokens in views filter criteria values.
+package: Other
+type: module
+core: '8.x'
+dependencies:
+  - token:token
+  - views:views

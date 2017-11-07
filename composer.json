@@ -1,0 +1,6 @@
+{
+    "name": "drupal/token_views_filter",
+    "description": "This is module allow to use tokens in views filter criteria values.",
+    "type": "drupal-module",
+    "license": "GPL-2.0+"
+}
