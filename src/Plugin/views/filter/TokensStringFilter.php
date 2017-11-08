@@ -23,10 +23,10 @@ class TokensStringFilter extends StringFilter {
   }
 
   /**
-   * Provide a simple textfield for equality
+   * Provide a simple textfield options to use tokens in filter.
    */
-  protected function valueForm(&$form, FormStateInterface $form_state) {
-    parent::valueForm($form, $form_state);
+  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    parent::buildOptionsForm($form, $form_state);
 
     $form['use_tokens'] = [
       '#type' => 'checkbox',
