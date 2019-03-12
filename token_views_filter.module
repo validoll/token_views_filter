@@ -21,4 +21,3 @@ function token_views_filter_views_pre_build(ViewExecutable $view) {
     }
   }
 }
-
