@@ -27,6 +27,9 @@ class TokenViewsFilterTest extends ViewTestBase {
    */
   public static $modules = ['views_ui', 'token_views_filter'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp($import_test_views = TRUE) {
     parent::setUp($import_test_views);
 
