@@ -13,26 +13,17 @@ use Drupal\views\Plugin\views\filter\StringFilter;
  * @ViewsFilter("string_with_tokens")
  */
 class TokensStringFilter extends StringFilter {
-
-  protected function defineOptions() {
-    $options = parent::defineOptions();
-
-    $options['use_tokens'] = ['default' => FALSE];
-
-    return $options;
-  }
+  use TokensFilterTrait;
 
   /**
-   * Provide a simple textfield options to use tokens in filter.
+   * {@inheritdoc}
+   *
+   * Replace tokens
    */
-  public function buildOptionsForm(&$form, FormStateInterface $form_state) {
-    parent::buildOptionsForm($form, $form_state);
+  public function preQuery() {
+    parent::preQuery();
 
-    $form['use_tokens'] = [
-      '#type' => 'checkbox',
-      '#title' => $this->t('Use tokens in value'),
-      '#default_value' => $this->options['use_tokens'],
-    ];
+    $this->value = \Drupal::token()->replace($this->value);
   }
 
 }
