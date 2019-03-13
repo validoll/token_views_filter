@@ -1,15 +1,11 @@
 <?php
 
-namespace Drupal\token_views_filter\Plugin\views\filter;
+namespace Drupal\token_views_filter;
 
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Extending if basic string filter to
- *
- * @ingroup views_filter_handlers
- *
- * @ViewsFilter("string_with_tokens")
+ * Filter trait to use for filter plugins.
  */
 trait TokensFilterTrait {
 
