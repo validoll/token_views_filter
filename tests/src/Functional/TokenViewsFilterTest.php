@@ -11,7 +11,7 @@ use Drupal\views\Views;
  * @group views
  * @see \Drupal\token_views_filter\Plugin\views\filter\TokensStringFilter
  */
-class FilterTest extends ViewTestBase {
+class TokenViewsFilterTest extends ViewTestBase {
 
   /**
    * Views used by this test.
