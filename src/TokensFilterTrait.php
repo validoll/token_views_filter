@@ -9,6 +9,11 @@ use Drupal\Core\Form\FormStateInterface;
  */
 trait TokensFilterTrait {
 
+  /**
+   * {@inheritdoc}
+   *
+   * @see \Drupal\views\Plugin\views/PluginBase::defineOptions()
+   */
   protected function defineOptions() {
     $options = parent::defineOptions();
 
@@ -35,8 +40,8 @@ trait TokensFilterTrait {
         '#states' => [
           'visible' => [
             ':input[name="options\\[use_tokens\\]"]' => ['checked' => TRUE],
-          ]
-        ]
+          ],
+        ],
       ];
       $form['token_help']['browser'] = [
         '#type' => 'markup',
