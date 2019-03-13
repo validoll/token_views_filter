@@ -4,7 +4,8 @@ Tokens in Views Filter Criteria
 INTRODUCTION
 ------------
 
-The Tokens in Views Filter Criteria module allow to use tokens in views string filter criteria values.
+The Tokens in Views Filter Criteria module allow to use tokens in views
+string filter criteria values.
 
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/token_views_filter
