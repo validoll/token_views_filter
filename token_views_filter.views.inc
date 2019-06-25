@@ -6,6 +6,7 @@
  */
 
 use Drupal\token_views_filter\Plugin\views\filter\TokensStringFilter;
+use Drupal\token_views_filter\Plugin\views\filter\TokensNumericFilter;
 
 /**
  * Implements hook_views_plugins_filter_alter().
@@ -13,4 +14,5 @@ use Drupal\token_views_filter\Plugin\views\filter\TokensStringFilter;
 function token_views_filter_views_plugins_filter_alter(array &$plugins) {
   // Change the 'string' handler class.
   $plugins['string']['class'] = TokensStringFilter::class;
+  $plugins['numeric']['class'] = TokensNumericFilter::class;
 }
