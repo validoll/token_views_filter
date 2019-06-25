@@ -3,11 +3,28 @@
 namespace Drupal\token_views_filter;
 
 use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Filter trait to use for filter plugins.
  */
 trait TokensFilterTrait {
+
+  /**
+   * The token service.
+   *
+   * @var \Drupal\Core\Utility\Token
+   */
+  protected $token;
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    $instance = parent::create($container, $configuration, $plugin_id, $plugin_definition);
+    $instance->token = $container->get('token');
+    return $instance;
+  }
 
   /**
    * {@inheritdoc}

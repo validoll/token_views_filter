@@ -23,7 +23,7 @@ class TokensStringFilter extends StringFilter {
     parent::preQuery();
 
     // Replace tokens.
-    $this->value = \Drupal::token()->replace($this->value);
+    $this->value = $this->token->replace($this->value);
   }
 
 }
