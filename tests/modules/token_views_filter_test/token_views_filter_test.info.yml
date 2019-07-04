@@ -1,0 +1,6 @@
+name: Tokens in Views Filter Criteria Test
+description: Testing module for token functionality.
+package: Testing
+type: module
+core: '8.x'
+hidden: TRUE

@@ -13,6 +13,7 @@ use Drupal\views\Plugin\views\filter\NumericFilter;
  * @ViewsFilter("numeric_with_tokens")
  */
 class TokensNumericFilter extends NumericFilter {
+
   use TokensFilterTrait;
 
   /**
@@ -23,9 +24,9 @@ class TokensNumericFilter extends NumericFilter {
   public function preQuery() {
     parent::preQuery();
 
-    $this->value['value'] = \Drupal::token()->replace($this->value['value']);
-    $this->value['min'] = \Drupal::token()->replace($this->value['min']);
-    $this->value['max'] = \Drupal::token()->replace($this->value['max']);
+    $this->value['value'] = $this->token->replace($this->value['value']);
+    $this->value['min'] = $this->token->replace($this->value['min']);
+    $this->value['max'] = $this->token->replace($this->value['max']);
   }
 
 }

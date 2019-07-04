@@ -1,0 +1,20 @@
+views.filter.string_with_tokens:
+  type: views.filter.string
+  mapping:
+    use_tokens:
+      type: boolean
+      label: 'Use tokens'
+
+views.filter.numeric_with_tokens:
+  type: views.filter.numeric
+  mapping:
+    use_tokens:
+      type: boolean
+      label: 'Use tokens'
+
+views.filter_value.numeric_with_tokens:
+  type: views.filter_value.numeric
+  mapping:
+    type:
+      type: string
+      label: 'Type'

@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\Tests\token_views_filter\Functional\Plugin;
+namespace Drupal\Tests\token_views_filter\Functional;
 
 use Drupal\Tests\views\Functional\ViewTestBase;
-use Drupal\views\Views;
+use Drupal\views\Tests\ViewTestData;
 
 /**
  * Tests token filter plugin functionality.
@@ -18,20 +18,24 @@ class TokenViewsFilterTest extends ViewTestBase {
    *
    * @var array
    */
-  public static $testViews = ['test_filter'];
+  public static $testViews = ['test_token_filter'];
 
   /**
    * Modules to enable.
    *
    * @var array
    */
-  public static $modules = ['views_ui', 'token_views_filter'];
+  public static $modules = ['views_ui', 'token_views_filter', 'token_views_filter_test'];
 
   /**
    * {@inheritdoc}
    */
   protected function setUp($import_test_views = TRUE) {
     parent::setUp($import_test_views);
+
+    if ($import_test_views) {
+      ViewTestData::createTestViews(get_class($this), ['token_views_filter_test']);
+    }
 
     $this->enableViewsTestModule();
 
@@ -40,30 +44,23 @@ class TokenViewsFilterTest extends ViewTestBase {
   }
 
   /**
-   * Tests the settings form field exists.
+   * Tests the settings form field exists (string).
    */
-  public function testFormFieldUseTokenExists() {
-    $this->drupalGet('admin/structure/views/nojs/handler/test_filter/default/filter/type');
+  public function testFormFieldStringUseTokenExists() {
+    $this->drupalGet('admin/structure/views/nojs/handler/test_token_filter/default/filter/test_filter_string');
     // Make sure the field exists.
     $this->assertSession()
       ->fieldExists('options[use_tokens]');
   }
 
   /**
-   * Tests token replacement.
+   * Tests the settings form field exists (numeric).
    */
-  public function testTokenReplacement() {
-    $view = Views::getView('test_filter');
-    $view->initDisplay();
-
-    $filters = $view->display_handler->getOption('filters');
-    $filters['type']['value'] = '[site:name]';
-    $filters['type']['use_tokens'] = TRUE;
-
-    $view->display_handler->overrideOption('filters', $filters);
-    $this->executeView($view);
-
-    $this->assertSame('Drupal', $view->filter['type']->value);
+  public function testFormFieldNumericUseTokenExists() {
+    $this->drupalGet('admin/structure/views/nojs/handler/test_token_filter/default/filter/test_filter_numeric');
+    // Make sure the field exists.
+    $this->assertSession()
+      ->fieldExists('options[use_tokens]');
   }
 
 }
