@@ -112,4 +112,51 @@ class TokenReplacementTest extends ViewsKernelTestBase {
     );
   }
 
+
+  /**
+   * Tests empty token replacement in filters.
+   */
+  public function testEmptyTokenStringReplacement() {
+    $view = Views::getView('test_token_filter');
+    $view->initDisplay();
+
+    // Disable token replacement.
+    $filters = $view->display_handler->getOption('filters');
+    $filters['test_filter_string']['value'] = '[test:value]';
+    $filters['test_filter_numeric']['value'] = [
+      'min' => '',
+      'max' => '',
+      'value' => '[test:value]',
+    ];
+    $filters['test_filter_numeric_between']['value'] = [
+      'min' => '[test:value]',
+      'max' => '[test:value]',
+      'value' => '',
+    ];
+    $view->display_handler->overrideOption('filters', $filters);
+
+    $this->executeView($view);
+
+    $this->assertSame('', $view->filter['test_filter_string']->value);
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '',
+      ],
+      $view->filter['test_filter_numeric']->value
+    );
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '',
+      ],
+      $view->filter['test_filter_numeric_between']->value
+    );
+
+  }
+
 }
