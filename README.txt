@@ -5,7 +5,7 @@ INTRODUCTION
 ------------
 
 The Tokens in Views Filter Criteria module allow to use tokens in views
-string filter criteria values.
+string and numeric filter criteria values.
 
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/token_views_filter
@@ -27,7 +27,7 @@ for further information.
 CONFIGURATION
 -------------
 
-Open any target view and open settings form of any string filter.Then check
+Open any target view and open settings form of any string or numeric filter.Then check
 field "Use tokens in value" in settings form and add global tokens to filter
 value.
 
