@@ -3,6 +3,7 @@
 namespace Drupal\token_views_filter\Plugin\views\filter;
 
 use Drupal\token_views_filter\TokensFilterTrait;
+use Drupal\token_views_filter\TokenViewsFilterPluginInterface;
 use Drupal\views\Plugin\views\filter\NumericFilter;
 
 /**
@@ -12,18 +13,14 @@ use Drupal\views\Plugin\views\filter\NumericFilter;
  *
  * @ViewsFilter("numeric_with_tokens")
  */
-class TokensNumericFilter extends NumericFilter {
+class TokensNumericFilter extends NumericFilter implements TokenViewsFilterPluginInterface {
 
   use TokensFilterTrait;
 
   /**
    * {@inheritdoc}
-   *
-   * Replace tokens
    */
-  public function preQuery() {
-    parent::preQuery();
-
+  public function replaceTokens() {
     $this->value['value'] = $this->token->replace($this->value['value']);
     $this->value['min'] = $this->token->replace($this->value['min']);
     $this->value['max'] = $this->token->replace($this->value['max']);

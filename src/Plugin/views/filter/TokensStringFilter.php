@@ -3,6 +3,7 @@
 namespace Drupal\token_views_filter\Plugin\views\filter;
 
 use Drupal\token_views_filter\TokensFilterTrait;
+use Drupal\token_views_filter\TokenViewsFilterPluginInterface;
 use Drupal\views\Plugin\views\filter\StringFilter;
 
 /**
@@ -12,17 +13,14 @@ use Drupal\views\Plugin\views\filter\StringFilter;
  *
  * @ViewsFilter("string_with_tokens")
  */
-class TokensStringFilter extends StringFilter {
+class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginInterface {
 
   use TokensFilterTrait;
 
   /**
    * {@inheritdoc}
    */
-  public function preQuery() {
-    parent::preQuery();
-
-    // Replace tokens.
+  public function replaceTokens() {
     $this->value = $this->token->replace($this->value);
   }
 

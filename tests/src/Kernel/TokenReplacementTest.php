@@ -74,4 +74,42 @@ class TokenReplacementTest extends ViewsKernelTestBase {
     );
   }
 
+  /**
+   * Tests disabled token replacement in filters.
+   */
+  public function testDisabledTokenStringReplacement() {
+    $view = Views::getView('test_token_filter');
+    $view->initDisplay();
+
+    // Disable token replacement.
+    $filters = $view->display_handler->getOption('filters');
+    $filters['test_filter_string']['use_tokens'] = FALSE;
+    $filters['test_filter_numeric']['use_tokens'] = FALSE;
+    $filters['test_filter_numeric_between']['use_tokens'] = FALSE;
+    $view->display_handler->overrideOption('filters', $filters);
+
+    $this->executeView($view);
+
+    $this->assertSame('[test:value:Drupal]', $view->filter['test_filter_string']->value);
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '[test:value:333]',
+      ],
+      $view->filter['test_filter_numeric']->value
+    );
+
+    $this->assertSame(
+      [
+        'min' => '[test:value:111]',
+        'max' => '[test:value:999]',
+        'value' => '',
+        'type' => 'numeric'
+      ],
+      $view->filter['test_filter_numeric_between']->value
+    );
+  }
+
 }

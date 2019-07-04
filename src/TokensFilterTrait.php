@@ -67,4 +67,18 @@ trait TokensFilterTrait {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   *
+   * Replace tokens
+   */
+  public function preQuery() {
+    parent::preQuery();
+
+    if (!empty($this->options['use_tokens'])) {
+      $this->replaceTokens();
+    }
+
+  }
+
 }
