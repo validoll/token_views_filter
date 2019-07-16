@@ -46,7 +46,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
   /**
    * Tests token replacement in filters.
    */
-  public function testTokenStringReplacement() {
+  public function testTokenReplacement() {
     $view = Views::getView('test_token_filter');
     $view->initDisplay();
 
@@ -77,7 +77,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
   /**
    * Tests disabled token replacement in filters.
    */
-  public function testDisabledTokenStringReplacement() {
+  public function testDisabledTokenReplacement() {
     $view = Views::getView('test_token_filter');
     $view->initDisplay();
 
@@ -116,7 +116,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
   /**
    * Tests empty token replacement in filters.
    */
-  public function testEmptyTokenStringReplacement() {
+  public function testEmptyTokenReplacement() {
     $view = Views::getView('test_token_filter');
     $view->initDisplay();
 
