@@ -61,8 +61,11 @@ trait TokensFilterTrait {
         ],
       ];
       $form['token_help']['browser'] = [
-        '#type' => 'markup',
         '#theme' => 'token_tree_link',
+        '#token_types' => [
+          'view',
+          'current-page',
+        ],
       ];
     }
   }

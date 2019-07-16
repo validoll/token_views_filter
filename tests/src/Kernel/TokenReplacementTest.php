@@ -25,7 +25,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['token_views_filter', 'token_views_filter_test'];
+  public static $modules = ['token_views_filter', 'token', 'token_views_filter_test'];
 
   /**
    * {@inheritdoc}
