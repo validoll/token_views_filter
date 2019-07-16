@@ -159,4 +159,38 @@ class TokenReplacementTest extends ViewsKernelTestBase {
 
   }
 
+  /**
+   * Tests views tokens replacement in filters.
+   */
+  public function testTokenViewsReplacement() {
+    $view = Views::getView('test_token_filter');
+    $view->initDisplay();
+
+    // Disable token replacement.
+    $filters = $view->display_handler->getOption('filters');
+    $filters['test_filter_string']['value'] = '[view:id]';
+    $filters['test_filter_numeric']['value'] = [
+      'min' => '',
+      'max' => '',
+      'value' => '[view:page-count]',
+    ];
+
+    $view->display_handler->overrideOption('filters', $filters);
+
+    $this->executeView($view);
+
+    $this->assertSame('test_token_filter', $view->filter['test_filter_string']->value);
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '1',
+      ],
+      $view->filter['test_filter_numeric']->value
+    );
+
+  }
+
+
 }
