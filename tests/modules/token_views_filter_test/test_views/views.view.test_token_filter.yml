@@ -61,6 +61,18 @@ display:
             value: ''
             type: numeric
           use_tokens: true
+        test_filter_date:
+          field: created
+          id: test_filter_date
+          table: views_test_data
+          plugin_id: date_with_tokens
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '[current-date:custom:Y-m-d]'
+            type: date
+          use_tokens: true
       query:
         type: views_query
       use_more_always: false

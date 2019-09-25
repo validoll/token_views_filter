@@ -14,4 +14,5 @@ use Drupal\token_views_filter\Plugin\views\filter\TokensNumericFilter;
 function token_views_filter_views_plugins_filter_alter(array &$plugins) {
   $plugins['string']['class'] = TokensStringFilter::class;
   $plugins['numeric']['class'] = TokensNumericFilter::class;
+  $plugins['date']['class'] = TokensNumericFilter::class;
 }

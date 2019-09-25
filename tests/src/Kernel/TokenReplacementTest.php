@@ -72,6 +72,16 @@ class TokenReplacementTest extends ViewsKernelTestBase {
       ],
       $view->filter['test_filter_numeric_between']->value
     );
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => date('Y-m-d'),
+        'type' => 'date'
+      ],
+      $view->filter['test_filter_date']->value
+    );
   }
 
   /**
@@ -86,6 +96,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
     $filters['test_filter_string']['use_tokens'] = FALSE;
     $filters['test_filter_numeric']['use_tokens'] = FALSE;
     $filters['test_filter_numeric_between']['use_tokens'] = FALSE;
+    $filters['test_filter_date']['use_tokens'] = FALSE;
     $view->display_handler->overrideOption('filters', $filters);
 
     $this->executeView($view);
@@ -110,6 +121,16 @@ class TokenReplacementTest extends ViewsKernelTestBase {
       ],
       $view->filter['test_filter_numeric_between']->value
     );
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '[current-date:custom:Y-m-d]',
+        'type' => 'date'
+      ],
+      $view->filter['test_filter_date']->value
+    );
   }
 
 
@@ -133,6 +154,11 @@ class TokenReplacementTest extends ViewsKernelTestBase {
       'max' => '[test:value]',
       'value' => '',
     ];
+    $filters['test_filter_date']['value'] = [
+      'min' => '',
+      'max' => '',
+      'value' => '[test:value]',
+    ];
     $view->display_handler->overrideOption('filters', $filters);
 
     $this->executeView($view);
@@ -155,6 +181,15 @@ class TokenReplacementTest extends ViewsKernelTestBase {
         'value' => '',
       ],
       $view->filter['test_filter_numeric_between']->value
+    );
+
+    $this->assertSame(
+      [
+        'min' => '',
+        'max' => '',
+        'value' => '',
+      ],
+      $view->filter['test_filter_date']->value
     );
 
   }

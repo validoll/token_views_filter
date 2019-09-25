@@ -12,8 +12,22 @@ views.filter.numeric_with_tokens:
       type: boolean
       label: 'Use tokens'
 
+views.filter.date_with_tokens:
+  type: views.filter.date
+  mapping:
+    use_tokens:
+      type: boolean
+      label: 'Use tokens'
+
 views.filter_value.numeric_with_tokens:
   type: views.filter_value.numeric
+  mapping:
+    type:
+      type: string
+      label: 'Type'
+
+views.filter_value.date_with_tokens:
+  type: views.filter_value.date
   mapping:
     type:
       type: string
