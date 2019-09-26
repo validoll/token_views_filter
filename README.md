@@ -15,7 +15,7 @@ The Tokens in Views Filter Criteria module allow to use tokens in views
  * To submit bug reports and feature suggestions, or to track changes:
    https://www.drupal.org/project/issues/token_views_filter
 
-##REQUIREMENTS
+## REQUIREMENTS
 This module has no specific requirements outside Drupal core.
 
 ## INSTALLATION
