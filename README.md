@@ -7,7 +7,7 @@ GitHub project page https://github.com/validoll/token_views_filter.**
 
 ## INTRODUCTION
 The Tokens in Views Filter Criteria module allow to use tokens in views
-string and numeric filter criteria values.
+**string, numeric and date** filter criteria values.
 
  * For a full description of the module, visit the project page:
    https://www.drupal.org/project/token_views_filter
