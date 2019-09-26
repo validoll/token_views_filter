@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\token_views_filter\Plugin\views\filter;
+namespace Drupal\token_views_filter\Plugin\views\filter\token;
 
 use Drupal\token_views_filter\TokensFilterTrait;
 use Drupal\token_views_filter\TokenViewsFilterPluginInterface;
@@ -9,11 +9,11 @@ use Drupal\views\Plugin\views\filter\Date;
 /**
  * Extending if basic date filter to use tokens as value.
  *
- * @ingroup views_filter_handlers
- *
- * @ViewsFilter("date_with_tokens")
+ * @Plugin(
+ *   id = "date",
+ * )
  */
-class TokensNumericFilter extends Date implements TokenViewsFilterPluginInterface {
+class TokensDateFilter extends Date implements TokenViewsFilterPluginInterface {
 
   use TokensFilterTrait;
 

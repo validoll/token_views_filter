@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\token_views_filter\Plugin\views\filter;
+namespace Drupal\token_views_filter\Plugin\views\filter\token;
 
 use Drupal\token_views_filter\TokensFilterTrait;
 use Drupal\token_views_filter\TokenViewsFilterPluginInterface;
@@ -9,9 +9,9 @@ use Drupal\views\Plugin\views\filter\NumericFilter;
 /**
  * Extending if basic integer filter to use tokens as value.
  *
- * @ingroup views_filter_handlers
- *
- * @ViewsFilter("numeric_with_tokens")
+ * @Plugin(
+ *   id = "numeric",
+ * )
  */
 class TokensNumericFilter extends NumericFilter implements TokenViewsFilterPluginInterface {
 

@@ -35,14 +35,14 @@ display:
           field: name
           id: test_filter_string
           table: views_test_data
-          plugin_id: string_with_tokens
+          plugin_id: string
           value: '[test:value:Drupal]'
           use_tokens: true
         test_filter_numeric:
           field: id
           id: test_filter_numeric
           table: views_test_data
-          plugin_id: numeric_with_tokens
+          plugin_id: numeric
           operator: '='
           value:
             min: ''
@@ -53,19 +53,30 @@ display:
           field: id
           id: test_filter_numeric_between
           table: views_test_data
-          plugin_id: numeric_with_tokens
+          plugin_id: numeric
           operator: between
           value:
             min: '[test:value:111]'
             max: '[test:value:999]'
             value: ''
-            type: numeric
           use_tokens: true
         test_filter_date:
           field: created
           id: test_filter_date
           table: views_test_data
-          plugin_id: date_with_tokens
+          plugin_id: date
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: '[current-date:custom:Y-m-d]'
+            type: date
+          use_tokens: true
+        test_filter_datetime:
+          field: created
+          id: test_filter_datetome
+          table: views_test_data
+          plugin_id: datetime
           operator: '='
           value:
             min: ''

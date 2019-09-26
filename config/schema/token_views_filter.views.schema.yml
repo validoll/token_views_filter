@@ -1,34 +1,62 @@
-views.filter.string_with_tokens:
-  type: views.filter.string
+views.filter.string:
+  type: views_filter
+  label: 'String'
   mapping:
+    expose:
+      type: mapping
+      label: 'Exposed'
+      mapping:
+        required:
+          type: boolean
+          label: 'Required'
+        placeholder:
+          type: label
+          label: 'Placeholder'
+    value:
+      type: string
+      label: 'Value'
     use_tokens:
       type: boolean
       label: 'Use tokens'
 
-views.filter.numeric_with_tokens:
+views.filter.numeric:
+  type: views_filter
+  label: 'Numeric'
+  mapping:
+    expose:
+      type: mapping
+      label: 'Exposed'
+      mapping:
+        min_placeholder:
+          type: label
+          label: 'Min placeholder'
+        max_placeholder:
+          type: label
+          label: 'Max placeholder'
+        placeholder:
+          type: label
+          label: 'Placeholder'
+    use_tokens:
+      type: boolean
+      label: 'Use tokens'
+
+views.filter.date:
   type: views.filter.numeric
+  label: 'Date'
   mapping:
+    type:
+      type: string
+      label: 'Type'
     use_tokens:
       type: boolean
       label: 'Use tokens'
 
-views.filter.date_with_tokens:
+views.filter.datetime:
   type: views.filter.date
   mapping:
     use_tokens:
       type: boolean
       label: 'Use tokens'
 
-views.filter_value.numeric_with_tokens:
-  type: views.filter_value.numeric
-  mapping:
-    type:
-      type: string
-      label: 'Type'
-
-views.filter_value.date_with_tokens:
+views.filter_value.datetime:
   type: views.filter_value.date
-  mapping:
-    type:
-      type: string
-      label: 'Type'

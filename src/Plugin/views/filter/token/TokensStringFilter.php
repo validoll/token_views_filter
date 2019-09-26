@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\token_views_filter\Plugin\views\filter;
+namespace Drupal\token_views_filter\Plugin\views\filter\token;
 
 use Drupal\token_views_filter\TokensFilterTrait;
 use Drupal\token_views_filter\TokenViewsFilterPluginInterface;
@@ -9,9 +9,9 @@ use Drupal\views\Plugin\views\filter\StringFilter;
 /**
  * Extending basic string filter to use tokens as value.
  *
- * @ingroup views_filter_handlers
- *
- * @ViewsFilter("string_with_tokens")
+ * @Plugin(
+ *   id = "string",
+ * )
  */
 class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginInterface {
 

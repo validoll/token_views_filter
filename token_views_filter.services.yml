@@ -1,0 +1,4 @@
+services:
+  plugin.manager.token_views_filter:
+    class: Drupal\token_views_filter\TokenViewsFilterPluginManager
+    parent: default_plugin_manager
