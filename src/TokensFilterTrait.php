@@ -79,9 +79,8 @@ trait TokensFilterTrait {
     parent::preQuery();
 
     if (!empty($this->options['use_tokens'])) {
-      $this->replaceTokens();
+      $this->replaceTokens($this->value);
     }
-
   }
 
 }

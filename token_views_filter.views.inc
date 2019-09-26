@@ -13,12 +13,11 @@ function token_views_filter_views_plugins_filter_alter(array &$plugins) {
   $plugin_manager = \Drupal::service('plugin.manager.token_views_filter');
 
   foreach ($plugins as $name => &$definition) {
-    /** @var \Drupal\views\Plugin\views\filter\FilterPluginBase $plugin */
-    if (!$plugin_manager->hasDefinition($name)) {
+    $plugin_definition = $plugin_manager->getDefinition($name, FALSE);
+    if (!isset($plugin_definition['class'])) {
       continue;
     }
 
-    $plugin = $plugin_manager->createInstance($name);
-    $definition['class'] = get_class($plugin);
+    $definition['class'] = $plugin_definition['class'];
   }
 }

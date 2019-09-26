@@ -11,7 +11,10 @@ interface TokenViewsFilterPluginInterface {
 
   /**
    * Replace tokens in filters.
+   *
+   * @param mixed $value
+   *   Array of values `min`, `max` and `value` or just value.
    */
-  public function replaceTokens();
+  public function replaceTokens(&$value);
 
 }

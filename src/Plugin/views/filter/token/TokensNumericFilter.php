@@ -20,12 +20,12 @@ class TokensNumericFilter extends NumericFilter implements TokenViewsFilterPlugi
   /**
    * {@inheritdoc}
    */
-  public function replaceTokens() {
+  public function replaceTokens(&$value) {
     $data = ['view' => $this->view];
 
-    $this->value['value'] = $this->token->replace($this->value['value'], $data, ['clear' => TRUE]);
-    $this->value['min'] = $this->token->replace($this->value['min'], $data, ['clear' => TRUE]);
-    $this->value['max'] = $this->token->replace($this->value['max'], $data, ['clear' => TRUE]);
+    $value['value'] = $this->token->replace($value['value'], $data, ['clear' => TRUE]);
+    $value['min'] = $this->token->replace($value['min'], $data, ['clear' => TRUE]);
+    $value['max'] = $this->token->replace($value['max'], $data, ['clear' => TRUE]);
   }
 
 }

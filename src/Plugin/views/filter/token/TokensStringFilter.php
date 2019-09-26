@@ -20,8 +20,8 @@ class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginI
   /**
    * {@inheritdoc}
    */
-  public function replaceTokens() {
-    $this->value = $this->token->replace($this->value, ['view' => $this->view], ['clear' => TRUE]);
+  public function replaceTokens(&$value) {
+    $value = $this->token->replace($value, ['view' => $this->view], ['clear' => TRUE]);
   }
 
 }
