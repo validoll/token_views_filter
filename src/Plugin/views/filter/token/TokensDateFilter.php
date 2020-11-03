@@ -24,10 +24,13 @@ class TokensDateFilter extends Date implements TokenViewsFilterPluginInterface {
    */
   public function replaceTokens(&$value) {
     $data = ['view' => $this->view];
+    $value_keys = ['value', 'min', 'max'];
 
-    $value['value'] = $this->token->replace($value['value'], $data, ['clear' => TRUE]);
-    $value['min'] = $this->token->replace($value['min'], $data, ['clear' => TRUE]);
-    $value['max'] = $this->token->replace($value['max'], $data, ['clear' => TRUE]);
+    foreach ($value_keys as $key) {
+      if (isset($value[$key])) {
+        $value[$key] = $this->token->replace($value[$key], $data, ['clear' => TRUE]);
+      }
+    }
   }
 
 }
