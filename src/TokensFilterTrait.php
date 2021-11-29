@@ -83,4 +83,58 @@ trait TokensFilterTrait {
     }
   }
 
+  /**
+   * {@inheritDoc}
+   *
+   * In case of grouped filters we have to override the parent FilterPluginBase 
+   * method so that we can tokenize the individual group_item's value.
+   * 
+   * @see \Drupal\views\Plugin\views\filter\FilterPluginBase::convertExposedInput()
+   */
+  public function convertExposedInput(&$input, $selected_group_id = NULL) {
+    if ($this->isAGroup()) {
+      // If it is already defined the selected group, use it. Only valid
+      // when the filter uses checkboxes for widget.
+      if (!empty($selected_group_id)) {
+        $selected_group = $selected_group_id;
+      }
+      else {
+        $selected_group = $input[$this->options['group_info']['identifier']];
+      }
+      if ($selected_group == 'All' && !empty($this->options['group_info']['optional'])) {
+        return NULL;
+      }
+      if ($selected_group != 'All' && empty($this->options['group_info']['group_items'][$selected_group])) {
+        return FALSE;
+      }
+      if (isset($selected_group) && isset($this->options['group_info']['group_items'][$selected_group])) {
+        $input[$this->options['expose']['operator']] = $this->options['group_info']['group_items'][$selected_group]['operator'];
+
+        // Value can be optional, For example for 'empty' and 'not empty' filters.
+        if (isset($this->options['group_info']['group_items'][$selected_group]['value']) && $this->options['group_info']['group_items'][$selected_group]['value'] !== '') {
+
+          if (!empty($this->options['use_tokens'])) {
+            // Tokenize the selected group_item's value.
+            $value = $this->options['group_info']['group_items'][$selected_group]['value'];
+            $this->replaceTokens($value);
+            $input[$this->options['group_info']['identifier']] = $value;
+          }
+          else {
+            $input[$this->options['group_info']['identifier']] = $this->options['group_info']['group_items'][$selected_group]['value'];
+          }
+
+        }
+        $this->options['expose']['use_operator'] = TRUE;
+
+        $this->group_info = $input[$this->options['group_info']['identifier']];
+
+        return TRUE;
+      }
+      else {
+        return FALSE;
+      }
+    }
+  }
+
 }
+
