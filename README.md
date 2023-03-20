@@ -24,13 +24,13 @@ https://www.drupal.org/documentation/install/modules-themes/modules-8
 for further information.
 
 ## CONFIGURATION
-Open any target view and open settings form of any string or numeric filter.Then check
-field "Use tokens in value" in settings form and add global tokens to filter
-value.
+Open any target view and open settings form of any string or numeric filter.
+Then check field "Use tokens in value" in settings form and add global
+tokens to filter value.
 
 ## FOR DEVELOPERS
-You can use your own plugins to implement token views filters via Token Views Filter 
-Plugin manager.
+You can use your own plugins to implement token views filters via Token
+Views Filter Plugin manager.
 To create plugin put it to `src/Plugin/views/filter/token` folder and define 
 with ID as original views filter plugin, like
 
@@ -82,12 +82,12 @@ class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginI
 ### Schema definition
 
 To use token views filter you should redefine original views filter schema 
-in your module in file `config/schema/{module_name}.schema.yml`
+in your module in file `config / schema / {module_name} . schema . yml`
 
 For example:
 
 ```
-views.filter.string:
+views . filter . string:
   type: views_filter
   label: 'String'
   mapping:
