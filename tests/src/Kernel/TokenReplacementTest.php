@@ -25,7 +25,11 @@ class TokenReplacementTest extends ViewsKernelTestBase {
    *
    * @var array
    */
-  public static $modules = ['token_views_filter', 'token', 'token_views_filter_test'];
+  public static $modules = [
+    'token_views_filter',
+    'token',
+    'token_views_filter_test',
+  ];
 
   /**
    * {@inheritdoc}
@@ -77,7 +81,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
         'min' => '',
         'max' => '',
         'value' => date('Y-m-d'),
-        'type' => 'date'
+        'type' => 'date',
       ],
       $view->filter['test_filter_date']->value
     );
@@ -87,7 +91,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
         'min' => '',
         'max' => '',
         'value' => date('Y-m-d'),
-        'type' => 'date'
+        'type' => 'date',
       ],
       $view->filter['test_filter_datetime']->value
     );
@@ -136,7 +140,7 @@ class TokenReplacementTest extends ViewsKernelTestBase {
         'min' => '',
         'max' => '',
         'value' => '[current-date:custom:Y-m-d]',
-        'type' => 'date'
+        'type' => 'date',
       ],
       $view->filter['test_filter_date']->value
     );
@@ -146,12 +150,11 @@ class TokenReplacementTest extends ViewsKernelTestBase {
         'min' => '',
         'max' => '',
         'value' => '[current-date:custom:Y-m-d]',
-        'type' => 'date'
+        'type' => 'date',
       ],
       $view->filter['test_filter_datetime']->value
     );
   }
-
 
   /**
    * Tests empty token replacement in filters.

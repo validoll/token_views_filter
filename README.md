@@ -2,7 +2,7 @@
 
 ## ★★★ GITHUB ★★★
 
-**If you like the module please give a STAR on 
+**If you like the module please give a STAR on
 GitHub project page https://github.com/validoll/token_views_filter.**
 
 ## INTRODUCTION
@@ -24,14 +24,14 @@ https://www.drupal.org/documentation/install/modules-themes/modules-8
 for further information.
 
 ## CONFIGURATION
-Open any target view and open settings form of any string or numeric filter.Then check
-field "Use tokens in value" in settings form and add global tokens to filter
-value.
+Open any target view and open settings form of any string or numeric filter.
+Then check field "Use tokens in value" in settings form and add global
+tokens to filter value.
 
 ## FOR DEVELOPERS
-You can use your own plugins to implement token views filters via Token Views Filter 
-Plugin manager.
-To create plugin put it to `src/Plugin/views/filter/token` folder and define 
+You can use your own plugins to implement token views filters via Token
+Views Filter Plugin manager.
+To create plugin put it to `src/Plugin/views/filter/token` folder and define
 with ID as original views filter plugin, like
 
 ```
@@ -42,8 +42,8 @@ with ID as original views filter plugin, like
  */
 ```
 
-A plugin should extend class of original views filter plugin, implements 
-`Drupal\token_views_filter\TokenViewsFilterPluginInterface` and uses trait 
+A plugin should extend class of original views filter plugin, implements
+`Drupal\token_views_filter\TokenViewsFilterPluginInterface` and uses trait
 `Drupal\token_views_filter\TokensFilterTrait`.
 Use `replaceTokens()` method to replace tokens in value.
 
@@ -81,8 +81,8 @@ class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginI
 
 ### Schema definition
 
-To use token views filter you should redefine original views filter schema 
-in your module in file `config/schema/{module_name}.schema.yml`
+To use token views filter you should redefine original views filter schema
+in your module in file `config / schema / {module_name} . schema . yml`
 
 For example:
 
@@ -109,7 +109,7 @@ views.filter.string:
       label: 'Use tokens'
 ```
 
-You shuld add 
+You should add
 
 ```
     use_tokens:
@@ -121,7 +121,7 @@ to mapping of plugin.
 
 ## KNOWN ISSUES
 
-If you know how to override definition of original views filter 
+If you know how to override definition of original views filter
 to add `use_tokens` property. Pls see
 https://www.drupal.org/project/token_views_filter/issues/3083793
 for more details.
