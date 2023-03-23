@@ -87,7 +87,7 @@ in your module in file `config / schema / {module_name} . schema . yml`
 For example:
 
 ```
-views . filter . string:
+views.filter.string:
   type: views_filter
   label: 'String'
   mapping:
