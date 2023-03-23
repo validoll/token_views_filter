@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Primarily Drupal hooks to manipulate Token Views Filter.
+ * Primarily Drupal hooks to manipulate token views filter.
  */
 
 /**

@@ -25,7 +25,11 @@ class TokenViewsFilterTest extends ViewTestBase {
    *
    * @var array
    */
-  public static $modules = ['views_ui', 'token_views_filter', 'token_views_filter_test'];
+  public static $modules = [
+    'views_ui',
+    'token_views_filter',
+    'token_views_filter_test',
+  ];
 
   /**
    * {@inheritdoc}

@@ -73,7 +73,7 @@ trait TokensFilterTrait {
   /**
    * {@inheritdoc}
    *
-   * Replace tokens
+   * Replace tokens.
    */
   public function preQuery() {
     parent::preQuery();
@@ -86,9 +86,9 @@ trait TokensFilterTrait {
   /**
    * {@inheritDoc}
    *
-   * In case of grouped filters we have to override the parent FilterPluginBase 
+   * In case of grouped filters we have to override the parent FilterPluginBase
    * method so that we can tokenize the individual group_item's value.
-   * 
+   *
    * @see \Drupal\views\Plugin\views\filter\FilterPluginBase::convertExposedInput()
    */
   public function convertExposedInput(&$input, $selected_group_id = NULL) {
@@ -110,7 +110,7 @@ trait TokensFilterTrait {
       if (isset($selected_group) && isset($this->options['group_info']['group_items'][$selected_group])) {
         $input[$this->options['expose']['operator']] = $this->options['group_info']['group_items'][$selected_group]['operator'];
 
-        // Value can be optional, For example for 'empty' and 'not empty' filters.
+        // Value can be optional, For example 'empty' and 'not empty' filters.
         if (isset($this->options['group_info']['group_items'][$selected_group]['value']) && $this->options['group_info']['group_items'][$selected_group]['value'] !== '') {
 
           if (!empty($this->options['use_tokens'])) {
@@ -137,4 +137,3 @@ trait TokensFilterTrait {
   }
 
 }
-

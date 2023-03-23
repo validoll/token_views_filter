@@ -1,9 +1,14 @@
 <?php
 
-use \Drupal\Core\Render\BubbleableMetadata;
+/**
+ * @file
+ * Hook implementations for [module name].
+ */
+
+use Drupal\Core\Render\BubbleableMetadata;
 
 /**
- * Implements hook_token_info()
+ * Implements hook_token_info().
  */
 function token_views_filter_test_token_info() {
   $types['test'] = [
@@ -23,7 +28,6 @@ function token_views_filter_test_token_info() {
     ],
   ];
 }
-
 
 /**
  * Implements hook_tokens().
