@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Hooks to modify views filter handler plugin.
+ * Hook implementations invoked by the Views module.
  */
 
 /**
