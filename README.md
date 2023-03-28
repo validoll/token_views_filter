@@ -82,7 +82,7 @@ class TokensStringFilter extends StringFilter implements TokenViewsFilterPluginI
 ### Schema definition
 
 To use token views filter you should redefine original views filter schema 
-in your module in file `config / schema / {module_name} . schema . yml`
+in your module in file `config/schema/{module_name}.schema.yml`
 
 For example:
 
