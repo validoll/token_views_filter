@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Hook implementations invoked by the Views module.
+ * Hook implementations for Token Views Filter module.
  */
 
 /**
