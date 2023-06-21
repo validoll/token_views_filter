@@ -110,7 +110,7 @@ trait TokensFilterTrait {
       if (isset($selected_group) && isset($this->options['group_info']['group_items'][$selected_group])) {
         $input[$this->options['expose']['operator']] = $this->options['group_info']['group_items'][$selected_group]['operator'];
 
-        // Value can be optional, For example 'empty' and 'not empty' filters.
+        // Value can be optional, for example 'empty' and 'not empty' filters.
         if (isset($this->options['group_info']['group_items'][$selected_group]['value']) && $this->options['group_info']['group_items'][$selected_group]['value'] !== '') {
 
           if (!empty($this->options['use_tokens'])) {
@@ -137,4 +137,3 @@ trait TokensFilterTrait {
   }
 
 }
-

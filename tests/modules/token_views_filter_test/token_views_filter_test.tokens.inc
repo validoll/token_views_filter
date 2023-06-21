@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains the Hook implementations.
+ * Hook implementations for Tokens in Views Filter Criteria.
  */
 
 use Drupal\Core\Render\BubbleableMetadata;
