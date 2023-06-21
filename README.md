@@ -109,7 +109,7 @@ views.filter.string:
       label: 'Use tokens'
 ```
 
-You shuld add
+You should add
 
 ```
     use_tokens:

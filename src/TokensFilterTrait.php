@@ -86,7 +86,7 @@ trait TokensFilterTrait {
   /**
    * {@inheritDoc}
    *
-   * In case of grouped filters we have to override the parent FilterPluginBase
+   * In case of grouped filters we have to override the parent class
    * method so that we can tokenize the individual group_item's value.
    *
    * @see \Drupal\views\Plugin\views\filter\FilterPluginBase::convertExposedInput()
