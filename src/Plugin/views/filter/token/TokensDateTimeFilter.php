@@ -23,7 +23,11 @@ class TokensDateTimeFilter extends Date implements TokenViewsFilterPluginInterfa
    * {@inheritdoc}
    */
   public function replaceTokens(&$value) {
-    $data = ['view' => $this->view];
+    $data = [
+      'view' => $this->view,
+      'enttiy' => $this->view,
+    ];
+
     $value_keys = ['value', 'min', 'max'];
 
     foreach ($value_keys as $key) {
